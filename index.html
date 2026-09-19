@@ -28,25 +28,38 @@
         }
 
         /* =========================================
-           LATAR BELAKANG CUTE (POLKADOT BERSIH)
+           LATAR BELAKANG GAMBAR BERGERAK
            ========================================= */
         .bg-cute {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: #ffc0cb; /* Warna dasar pink */
             z-index: 0;
             pointer-events: none;
+            overflow: hidden;
         }
 
-        /* Pola Polkadot Putih Transparan */
+        .bg-cute::before {
+            content: "";
+            position: absolute;
+            top: -10%; left: -10%; width: 120%; height: 120%;
+            background-image: url('Fotokedua.jpeg'); /* Nama file sudah diganti */
+            background-size: cover;
+            background-position: center;
+            /* Animasi bergerak/zoom perlahan */
+            animation: moveBg 15s ease-in-out infinite alternate;
+        }
+
+        /* Lapisan pink lutsinar supaya teks/kad kekal mudah dibaca */
         .bg-cute::after {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(#ffffff 4px, transparent 4px), radial-gradient(#ffffff 4px, transparent 4px);
-            background-size: 50px 50px;
-            background-position: 0 0, 25px 25px;
-            opacity: 0.6;
+            background: rgba(255, 192, 203, 0.4); 
+        }
+
+        @keyframes moveBg {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.05) translate(-2%, -2%); }
         }
 
         /* =========================================
@@ -58,7 +71,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(255, 228, 225, 0.9); 
+            background-color: rgba(255, 228, 225, 0.85); 
             backdrop-filter: blur(8px);
             z-index: 9999;
             display: flex;
@@ -72,7 +85,9 @@
             background: rgba(255, 255, 255, 0.9);
             border: 3px dashed #ffb6c1;
             border-radius: 35px;
-            padding: 40px 60px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 380px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -101,21 +116,24 @@
             margin-bottom: 20px;
             letter-spacing: 1px;
             color: #d81b60;
+            text-align: center;
         }
 
         .welcome-tap {
             font-size: 12px;
             color: #f06292;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: blinkText 1.5s infinite;
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 8px;
             font-weight: 700;
             background: #fff0f5;
-            padding: 8px 20px;
+            padding: 10px 20px;
             border-radius: 20px;
             border: 1px solid #ffb6c1;
+            white-space: nowrap;
         }
 
         @keyframes blinkText {
@@ -210,7 +228,7 @@
             top: -10px;
             right: -5px;
             font-size: 32px;
-            color: #f06292; /* Warna pink untuk simbol hati */
+            color: #f06292; 
             filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.4));
             z-index: 5;
             animation: floatDeco 3s ease-in-out infinite;
@@ -260,7 +278,7 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 24px;
-            color: #f06292; /* Warna pink untuk simbol hati */
+            color: #f06292;
             z-index: 3;
             opacity: 0.9;
             filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
@@ -501,7 +519,7 @@
     <!-- Audio MP3 -->
     <audio id="bgMusic" src="lagu.mp3" loop></audio>
 
-    <!-- KONTEN LATAR BELAKANG POLKADOT -->
+    <!-- KONTEN LATAR BELAKANG BERGAMBAR -->
     <div class="bg-cute"></div>
 
     <!-- ==========================================
@@ -509,14 +527,13 @@
          ========================================== -->
     <div id="welcomeOverlay">
         <div class="welcome-card">
-            <!-- Dekorasi Simbol Hati Khusus Layar Welcome -->
             <div class="profile-pic-wrapper">
                 <img src="images/fotoenji.jpg" alt="Profile" class="welcome-pic" onerror="this.src='fotoenji.jpg'">
                 <div class="profile-deco">♡</div>
             </div>
             <h2 class="welcome-name">Kedai anggie</h2>
             <div class="welcome-tap">
-                <i class="fa-solid fa-heart" style="font-size:10px;"></i> TAP ANYWHERE <i class="fa-solid fa-heart" style="font-size:10px;"></i>
+                <i class="fa-solid fa-heart" style="font-size:10px;"></i> welcome to my profile ˃◡˂ <i class="fa-solid fa-heart" style="font-size:10px;"></i>
             </div>
         </div>
     </div>
@@ -532,20 +549,16 @@
 
         <div class="container">
             
-            <!-- HEADER (FOTO PROFIL, WELCOME & SOSMED) -->
             <div class="profile-section">
-                <!-- Foto Profil Besar -->
                 <div class="profile-pic-wrapper animate-item delay-2">
                     <img src="images/fotoenji.jpg" alt="Profile" class="profile-pic-main" onerror="this.src='fotoenji.jpg'">
                     <div class="profile-deco">♡</div>
                 </div>
 
-                <!-- Teks Welcome -->
                 <div class="welcome-pill animate-item delay-3">
                     Welcome to my profile enji ♡
                 </div>
                 
-                <!-- Ikon Sosial dengan Dekorasi Simbol Hati -->
                 <div class="social-container animate-item delay-4">
                     <div class="ribbon-deco">♡</div>
                     <div class="social-icons">
@@ -555,7 +568,6 @@
                 </div>
             </div>
 
-            <!-- KARTU MUSIK -->
             <div class="glass-card music-card animate-item delay-5">
                 <div class="music-pic-container">
                     <img src="images/fotoenji.jpg" alt="Profile" class="music-pic spin-active" id="musicDisc" onerror="this.src='fotoenji.jpg'">
@@ -579,7 +591,6 @@
                 </div>
             </div>
 
-            <!-- ANIMASI ANGKA STATISTIK (COUNTER) YANG DIPERLAMBAT -->
             <div class="stats-row animate-item delay-6">
                 <div class="stat-item">
                     <i class="fa-regular fa-eye"></i> 
@@ -603,7 +614,6 @@
                 </div>
             </div>
 
-            <!-- MARQUEE PROMO -->
             <div class="promo-banner animate-item delay-7">
                 <i class="fa-solid fa-bullhorn"></i>
                 <div class="marquee-content">
@@ -644,17 +654,15 @@
         const musicWave = document.getElementById('musicWave');
         let isPlaying = false;
 
-        // FUNGSI ANIMASI ANGKA (COUNTER) YANG DIPERLAMBAT
         function startCounters() {
             const counters = document.querySelectorAll('.counter');
-            const duration = 3500; // Durasi animasi diperlambat menjadi 3.5 detik
+            const duration = 3500; 
 
             counters.forEach(counter => {
                 const target = parseFloat(counter.getAttribute('data-target'));
                 const isDecimal = counter.hasAttribute('data-decimal');
                 let startTime = null;
 
-                // Menggunakan fungsi easing ease-out agar melambat di akhir
                 function easeOutExpo(t) {
                     return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
                 }
@@ -663,9 +671,8 @@
                     if (!startTime) startTime = timestamp;
                     const progress = timestamp - startTime;
                     const percentage = Math.min(progress / duration, 1);
-                    const easedProgress = easeOutExpo(percentage); // Menerapkan efek ease-out
+                    const easedProgress = easeOutExpo(percentage); 
                     
-                    // Menghitung angka saat ini berdasarkan persentase waktu
                     const currentVal = target * easedProgress;
                     
                     if (isDecimal) {
@@ -675,9 +682,8 @@
                     }
 
                     if (progress < duration) {
-                        requestAnimationFrame(countUp); // Ulangi terus sampai waktu habis
+                        requestAnimationFrame(countUp); 
                     } else {
-                        // Pastikan angka terakhir pas di target
                         counter.innerText = isDecimal ? target.toFixed(1) : target;
                     }
                 }
@@ -697,10 +703,7 @@
             setTimeout(() => {
                 overlay.style.display = 'none';
                 mainContent.style.display = 'flex'; 
-                
-                // Menjalankan animasi angka setelah layar utama muncul
                 startCounters();
-                
             }, 500);
         });
 
