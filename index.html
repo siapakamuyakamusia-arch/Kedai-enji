@@ -19,7 +19,6 @@
         }
 
         body {
-            /* Warna teks coklat kemerahan lembut agar tidak kaku */
             color: #5c3a4d;
             min-height: 100vh;
             display: flex;
@@ -29,14 +28,12 @@
         }
 
         /* =========================================
-           LATAR BELAKANG CUTE (POLKADOT + GRADASI)
+           LATAR BELAKANG CUTE (POLKADOT BERSIH)
            ========================================= */
         .bg-cute {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(135deg, #fff0f5, #ffe4e1, #ffc0cb, #fce4ec);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: #ffc0cb; /* Warna dasar pink */
             z-index: 0;
             pointer-events: none;
         }
@@ -46,46 +43,11 @@
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(#ffffff 3px, transparent 3px), radial-gradient(#ffffff 3px, transparent 3px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
-            opacity: 0.5;
+            background-image: radial-gradient(#ffffff 4px, transparent 4px), radial-gradient(#ffffff 4px, transparent 4px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.6;
         }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* =========================================
-           ELEMEN CUTE MELAYANG (PITA, HATI, AWAN)
-           ========================================= */
-        .cute-float {
-            position: fixed;
-            top: -10%;
-            z-index: 1;
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear infinite;
-            filter: drop-shadow(0 4px 6px rgba(255, 105, 180, 0.2));
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-10vh) translateX(0) rotate(0deg) scale(0.8); opacity: 0; }
-            10% { opacity: 1; }
-            50% { transform: translateY(50vh) translateX(20px) rotate(15deg) scale(1.1); }
-            90% { opacity: 1; }
-            100% { transform: translateY(110vh) translateX(-20px) rotate(-15deg) scale(0.8); opacity: 0; }
-        }
-
-        .cute-float:nth-child(1) { left: 8%; font-size: 28px; animation-duration: 14s; animation-delay: 0s; }
-        .cute-float:nth-child(2) { left: 25%; font-size: 22px; animation-duration: 18s; animation-delay: 2s; }
-        .cute-float:nth-child(3) { left: 45%; font-size: 30px; animation-duration: 13s; animation-delay: 5s; }
-        .cute-float:nth-child(4) { left: 65%; font-size: 25px; animation-duration: 16s; animation-delay: 1s; }
-        .cute-float:nth-child(5) { left: 85%; font-size: 35px; animation-duration: 15s; animation-delay: 4s; }
-        .cute-float:nth-child(6) { left: 15%; font-size: 20px; animation-duration: 12s; animation-delay: 7s; }
-        .cute-float:nth-child(7) { left: 75%; font-size: 28px; animation-duration: 17s; animation-delay: 3s; }
 
         /* =========================================
            LAYAR WELCOME (TAP ANYWHERE)
@@ -107,7 +69,7 @@
         }
 
         .welcome-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             border: 3px dashed #ffb6c1;
             border-radius: 35px;
             padding: 40px 60px;
@@ -120,7 +82,7 @@
 
         @keyframes bounceCard {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-10px); }
         }
 
         .welcome-pic {
@@ -167,22 +129,11 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes slideRight {
-            0% { opacity: 0; transform: translateX(-30px); }
-            100% { opacity: 1; transform: translateX(0); }
-        }
-
         .animate-item {
             opacity: 0; 
-            animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; /* Efek memantul (bouncy) */
+            animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
             position: relative;
             z-index: 2; 
-        }
-
-        .animate-text {
-            opacity: 0;
-            animation: slideRight 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            display: block;
         }
 
         .delay-1 { animation-delay: 0.1s; }
@@ -191,15 +142,8 @@
         .delay-4 { animation-delay: 0.4s; }
         .delay-5 { animation-delay: 0.5s; }
         .delay-6 { animation-delay: 0.6s; }
-
-        .t-delay-1 { animation-delay: 0.4s; }
-        .t-delay-2 { animation-delay: 0.5s; }
-        .t-delay-3 { animation-delay: 0.6s; }
-        .t-delay-4 { animation-delay: 0.7s; }
-        .t-delay-5 { animation-delay: 0.8s; }
-        .t-delay-6 { animation-delay: 0.9s; }
-        .t-delay-7 { animation-delay: 1.0s; }
-        .t-delay-8 { animation-delay: 1.1s; }
+        .delay-7 { animation-delay: 0.7s; }
+        .delay-8 { animation-delay: 0.8s; }
 
         /* =========================================
            STYLING HALAMAN UTAMA
@@ -225,7 +169,7 @@
             right: 25px;
             width: 45px;
             height: 45px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border: 2px dashed #ffb6c1;
             border-radius: 50%;
             display: flex;
@@ -243,58 +187,100 @@
             transform: scale(1.15) rotate(10deg);
         }
 
+        /* =========================================
+           BAGIAN FOTO PROFIL BESAR
+           ========================================= */
         .profile-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 60px;
+            margin-bottom: 25px;
             text-align: center;
+            gap: 20px;
         }
 
-        .profile-pic-main {
+        .profile-pic-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-deco {
+            position: absolute;
+            top: -10px;
+            right: -5px;
+            font-size: 32px;
+            color: #f06292; /* Warna pink untuk simbol hati */
+            filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.4));
+            z-index: 5;
+            animation: floatDeco 3s ease-in-out infinite;
+        }
+
+        @keyframes floatDeco {
+            0%, 100% { transform: rotate(15deg) translateY(0) scale(1); }
+            50% { transform: rotate(15deg) translateY(-6px) scale(1.1); }
+        }
+
+        .profile-pic-main, .welcome-pic {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
-            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
-            border: 5px solid #ffffff;
-            padding: 3px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 0 0 4px #ffb6c1, 0 10px 25px 6px rgba(255, 182, 193, 0.5);
             background: #ffb6c1;
         }
 
-        .profile-name {
-            font-size: 26px;
-            font-weight: 800;
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
-            color: #d81b60;
+        .welcome-pic {
+            margin-bottom: 0;
         }
 
-        .profile-desc {
-            font-size: 14px;
-            color: #880e4f;
-            margin-bottom: 20px;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 5px 15px;
-            border-radius: 20px;
+        /* =========================================
+           TEKS WELCOME & SOSMED
+           ========================================= */
+        .welcome-pill {
+            background: rgba(255, 240, 245, 0.95);
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #d81b60;
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
+            margin-top: 10px;
+        }
+
+        .social-container {
+            position: relative;
+            margin-top: 5px;
+        }
+
+        .ribbon-deco {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #f06292; /* Warna pink untuk simbol hati */
+            z-index: 3;
+            opacity: 0.9;
+            filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
         }
 
         .social-icons {
             display: flex;
             gap: 20px;
-            margin-bottom: 35px;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 12px 30px;
-            border-radius: 35px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 35px;
+            border-radius: 40px;
             border: 2px dashed #ffb6c1;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
+            position: relative;
+            z-index: 2;
         }
 
         .social-icons a {
             color: #f06292;
-            font-size: 24px;
+            font-size: 26px;
             transition: all 0.3s ease;
         }
 
@@ -303,8 +289,11 @@
             color: #d81b60;
         }
 
+        /* =========================================
+           KARTU MUSIK
+           ========================================= */
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border: 2px dashed #ffb6c1;
             border-radius: 25px;
@@ -330,12 +319,12 @@
         }
 
         .music-pic {
-            width: 60px;
-            height: 60px;
+            width: 65px; 
+            height: 65px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #ffffff;
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 0 0 3px #ffb6c1, 0 4px 10px 3px rgba(255, 182, 193, 0.4);
         }
 
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -343,19 +332,20 @@
 
         .online-dot {
             position: absolute;
-            bottom: 2px;
-            right: 2px;
-            width: 16px;
-            height: 16px;
+            bottom: 4px;
+            right: 4px;
+            width: 14px;
+            height: 14px;
             background-color: #1dd1a1;
             border-radius: 50%;
             border: 3px solid #ffffff;
+            z-index: 2;
         }
 
         .music-info {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
             flex-grow: 1;
         }
 
@@ -364,7 +354,7 @@
             align-items: center;
             gap: 8px;
             font-weight: 800;
-            font-size: 16px;
+            font-size: 16px; 
             color: #d81b60;
         }
 
@@ -384,8 +374,8 @@
             font-size: 14px;
         }
 
-        .music-subtitle { font-size: 13px; color: #ad1457; font-weight: 700; }
-        .music-song { font-size: 12px; color: #f06292; display: flex; align-items: center; gap: 8px; font-weight: 600;}
+        .music-subtitle { font-size: 14px; color: #ad1457; font-weight: 700; }
+        .music-song { font-size: 13px; color: #f06292; display: flex; align-items: center; gap: 8px; font-weight: 600;}
 
         .music-wave { display: none; gap: 4px; height: 14px; align-items: flex-end; }
         .music-wave.active { display: flex; }
@@ -395,37 +385,50 @@
         .wave-bar:nth-child(3) { height: 80%; animation-delay: 0.4s; }
         @keyframes bounce { 0%, 100% { transform: scaleY(0.5); } 50% { transform: scaleY(1); } }
 
+        /* STATS ROW & COUNTER */
         .stats-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
             border: 2px dashed #ffb6c1;
             padding: 15px 20px;
             margin-bottom: 25px;
             color: #d81b60;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 800;
             width: 100%;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
         }
 
-        .stat-item { display: flex; flex-direction: column; align-items: center; gap: 5px; transition: color 0.3s ease; }
+        .stat-item { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 5px; 
+            transition: color 0.3s ease; 
+        }
+        
         .stat-item i { font-size: 18px; color: #f06292; }
         .stat-item:hover { color: #d81b60; }
+        
+        .stat-text {
+            display: flex;
+            align-items: center;
+        }
 
         /* =========================================
            BANNER PENGUMUMAN BERJALAN
            ========================================= */
         .promo-banner {
-            background: #fff0f5;
+            background: #fff;
             border: 2px dashed #ffb6c1;
-            border-radius: 15px;
+            border-radius: 25px;
             padding: 12px 15px;
             margin-bottom: 20px;
             width: 100%;
-            box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
             overflow: hidden;
             white-space: nowrap;
             position: relative;
@@ -438,7 +441,7 @@
             margin-right: 10px;
             font-size: 18px;
             z-index: 2;
-            background: #fff0f5;
+            background: #fff;
             padding-right: 10px;
         }
 
@@ -485,13 +488,12 @@
         .link-text h3 { font-size: 16px; font-weight: 800; margin-bottom: 5px; color:#d81b60;}
         .link-text p { font-size: 12px; color: #ad1457; font-weight: 600; }
         .link-icon {
-            color: #d81b60; font-size: 20px; background: #fff0f5;
+            color: #fff; font-size: 20px; background: #f06292;
             width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
             border-radius: 50%; transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5);
-            border: 2px solid #ffb6c1;
         }
-        .link-card:hover .link-icon { background: #f06292; color: white; transform: rotate(15deg) scale(1.1); border-color:#fff;}
+        .link-card:hover .link-icon { background: #d81b60; transform: rotate(15deg) scale(1.1);}
     </style>
 </head>
 <body>
@@ -499,24 +501,19 @@
     <!-- Audio MP3 -->
     <audio id="bgMusic" src="lagu.mp3" loop></audio>
 
-    <!-- KONTEN LATAR BELAKANG CUTE -->
+    <!-- KONTEN LATAR BELAKANG POLKADOT -->
     <div class="bg-cute"></div>
-
-    <!-- Dekorasi Emoji Melayang Super Cute -->
-    <div class="cute-float">🎀</div>
-    <div class="cute-float">☁️</div>
-    <div class="cute-float">💖</div>
-    <div class="cute-float">🌸</div>
-    <div class="cute-float">✨</div>
-    <div class="cute-float">🌷</div>
-    <div class="cute-float">🎀</div>
 
     <!-- ==========================================
          LAYAR AWAL (OVERLAY TAP ANYWHERE)
          ========================================== -->
     <div id="welcomeOverlay">
         <div class="welcome-card">
-            <img src="images/foto.jpg" alt="Profile" class="welcome-pic" onerror="this.src='foto.jpg'">
+            <!-- Dekorasi Simbol Hati Khusus Layar Welcome -->
+            <div class="profile-pic-wrapper">
+                <img src="images/fotoenji.jpg" alt="Profile" class="welcome-pic" onerror="this.src='fotoenji.jpg'">
+                <div class="profile-deco">♡</div>
+            </div>
             <h2 class="welcome-name">Kedai anggie</h2>
             <div class="welcome-tap">
                 <i class="fa-solid fa-heart" style="font-size:10px;"></i> TAP ANYWHERE <i class="fa-solid fa-heart" style="font-size:10px;"></i>
@@ -534,31 +531,45 @@
         </div>
 
         <div class="container">
-            <div class="profile-section animate-item delay-2">
-                <img src="images/foto.jpg" alt="Profile" class="profile-pic-main" onerror="this.src='foto.jpg'">
-                <h1 class="profile-name animate-text t-delay-1">KEDAI ANGGIE</h1>
-                <p class="profile-desc animate-text t-delay-2">Welcome to my profile enji🎀</p>
+            
+            <!-- HEADER (FOTO PROFIL, WELCOME & SOSMED) -->
+            <div class="profile-section">
+                <!-- Foto Profil Besar -->
+                <div class="profile-pic-wrapper animate-item delay-2">
+                    <img src="images/fotoenji.jpg" alt="Profile" class="profile-pic-main" onerror="this.src='fotoenji.jpg'">
+                    <div class="profile-deco">♡</div>
+                </div>
+
+                <!-- Teks Welcome -->
+                <div class="welcome-pill animate-item delay-3">
+                    Welcome to my profile enji ♡
+                </div>
                 
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://wa.me/6289505562584"><i class="fa-brands fa-whatsapp"></i></a>
+                <!-- Ikon Sosial dengan Dekorasi Simbol Hati -->
+                <div class="social-container animate-item delay-4">
+                    <div class="ribbon-deco">♡</div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/enjicancii_?stkn=NTFlaHBlc2k2dG5o"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/6281344428484"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="glass-card music-card animate-item delay-3">
+            <!-- KARTU MUSIK -->
+            <div class="glass-card music-card animate-item delay-5">
                 <div class="music-pic-container">
-                    <img src="images/foto.jpg" alt="Mini Profile" class="music-pic spin-active" id="musicDisc" onerror="this.src='foto.jpg'">
+                    <img src="images/fotoenji.jpg" alt="Profile" class="music-pic spin-active" id="musicDisc" onerror="this.src='fotoenji.jpg'">
                     <div class="online-dot"></div>
                 </div>
                 <div class="music-info">
-                    <div class="music-title-row animate-text t-delay-3">
-                        Nona Enji
+                    <div class="music-title-row">
+                        Kedai Enji
                         <span class="pro-badge">CUTE</span>
                         <i class="fa-solid fa-crown crown-icon"></i>
                     </div>
-                    <div class="music-subtitle animate-text t-delay-4">Nona Enji</div>
-                    <div class="music-song animate-text t-delay-5">
-                        in another life ☁️
+                    <div class="music-subtitle">Enji</div>
+                    <div class="music-song">
+                        Dovet ☁️
                         <div class="music-wave active" id="musicWave">
                             <div class="wave-bar"></div>
                             <div class="wave-bar"></div>
@@ -568,35 +579,52 @@
                 </div>
             </div>
 
-            <div class="stats-row animate-item delay-4">
-                <div class="stat-item"><i class="fa-regular fa-eye"></i> 15K+</div>
-                <div class="stat-item"><i class="fa-solid fa-users"></i> 2.5K+</div>
-                <div class="stat-item"><i class="fa-solid fa-star" style="color: #ffb74d;"></i> 4.9/5</div>
-                <div class="stat-item"><i class="fa-solid fa-cart-shopping"></i> 10K+</div>
-                <div class="stat-item"><i class="fa-solid fa-bolt" style="color: #ffb74d;"></i> 24/7</div>
-            </div>
-
-            <div class="promo-banner animate-item delay-5">
-                <i class="fa-solid fa-bullhorn"></i>
-                <div class="marquee-content">
-                    ✨ FLASH SALE: Semua Aplikasi Premium Diskon 20% Hari Ini! Klaim Garansi 100% Aman & Terpercaya. 🎀
+            <!-- ANIMASI ANGKA STATISTIK (COUNTER) YANG DIPERLAMBAT -->
+            <div class="stats-row animate-item delay-6">
+                <div class="stat-item">
+                    <i class="fa-regular fa-eye"></i> 
+                    <span class="stat-text"><span class="counter" data-target="15">0</span>K+</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-users"></i> 
+                    <span class="stat-text"><span class="counter" data-target="2.5" data-decimal="true">0.0</span>K+</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-star" style="color: #ffb74d;"></i> 
+                    <span class="stat-text"><span class="counter" data-target="4.9" data-decimal="true">0.0</span>/5</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-cart-shopping"></i> 
+                    <span class="stat-text"><span class="counter" data-target="10">0</span>K+</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-bolt" style="color: #ffb74d;"></i> 
+                    <span class="stat-text"><span class="counter" data-target="24">0</span>/7</span>
                 </div>
             </div>
 
-            <a href="list.html" class="glass-card link-card animate-item delay-6">
+            <!-- MARQUEE PROMO -->
+            <div class="promo-banner animate-item delay-7">
+                <i class="fa-solid fa-bullhorn"></i>
+                <div class="marquee-content">
+                    ✨ FLASH SALE: Semua Aplikasi Premium Diskon 20% Hari Ini! Klaim Garansi 100% Aman & Terpercaya. ♡
+                </div>
+            </div>
+
+            <a href="list.html" class="glass-card link-card animate-item delay-8">
                 <div class="link-text">
-                    <h3 class="animate-text t-delay-6">🛒 Katalog Aplikasi</h3>
-                    <p class="animate-text t-delay-7">Pilih & order aplikasi kebutuhanmu di sini</p>
+                    <h3>🛒 Katalog Aplikasi</h3>
+                    <p>Pilih & order aplikasi kebutuhanmu di sini</p>
                 </div>
                 <div class="link-icon">
                     <i class="fa-solid fa-store"></i>
                 </div>
             </a>
 
-            <a href="https://whatsapp.com/channel/0029Vb6XBmL6rsQlgcYat21N" class="glass-card link-card animate-item delay-7">
+            <a href="https://whatsapp.com/channel/0029Vb6XBmL6rsQlgcYat21N" class="glass-card link-card animate-item delay-8">
                 <div class="link-text">
-                    <h3 class="animate-text t-delay-8">⭐ Bukti Testimoni</h3>
-                    <p class="animate-text t-delay-9">100% Trusted & Transaksi Bergaransi</p>
+                    <h3>⭐ Bukti Testimoni</h3>
+                    <p>100% Trusted & Transaksi Bergaransi</p>
                 </div>
                 <div class="link-icon">
                     <i class="fa-solid fa-shield-cat"></i>
@@ -605,7 +633,7 @@
         </div>
     </div>
 
-    <!-- Script Logika Tap & Audio -->
+    <!-- Script Logika Tap, Audio & Counter -->
     <script>
         const audio = document.getElementById('bgMusic');
         const overlay = document.getElementById('welcomeOverlay');
@@ -615,6 +643,47 @@
         const musicDisc = document.getElementById('musicDisc');
         const musicWave = document.getElementById('musicWave');
         let isPlaying = false;
+
+        // FUNGSI ANIMASI ANGKA (COUNTER) YANG DIPERLAMBAT
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const duration = 3500; // Durasi animasi diperlambat menjadi 3.5 detik
+
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const isDecimal = counter.hasAttribute('data-decimal');
+                let startTime = null;
+
+                // Menggunakan fungsi easing ease-out agar melambat di akhir
+                function easeOutExpo(t) {
+                    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+                }
+
+                function countUp(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = timestamp - startTime;
+                    const percentage = Math.min(progress / duration, 1);
+                    const easedProgress = easeOutExpo(percentage); // Menerapkan efek ease-out
+                    
+                    // Menghitung angka saat ini berdasarkan persentase waktu
+                    const currentVal = target * easedProgress;
+                    
+                    if (isDecimal) {
+                        counter.innerText = currentVal.toFixed(1);
+                    } else {
+                        counter.innerText = Math.floor(currentVal);
+                    }
+
+                    if (progress < duration) {
+                        requestAnimationFrame(countUp); // Ulangi terus sampai waktu habis
+                    } else {
+                        // Pastikan angka terakhir pas di target
+                        counter.innerText = isDecimal ? target.toFixed(1) : target;
+                    }
+                }
+                requestAnimationFrame(countUp);
+            });
+        }
 
         overlay.addEventListener('click', () => {
             audio.play().then(() => {
@@ -628,6 +697,10 @@
             setTimeout(() => {
                 overlay.style.display = 'none';
                 mainContent.style.display = 'flex'; 
+                
+                // Menjalankan animasi angka setelah layar utama muncul
+                startCounters();
+                
             }, 500);
         });
 
